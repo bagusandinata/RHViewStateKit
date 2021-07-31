@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name                  = 'RHViewStateKit'
-  s.version               = '1.0.0'
+  s.version               = '1.0.1'
   s.summary               = 'RHViewState provides fully customizable configuration to change state in your view'
   s.platform              = :ios
   s.ios.deployment_target = '10.0'
