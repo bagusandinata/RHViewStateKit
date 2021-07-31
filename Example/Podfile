@@ -1,0 +1,12 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'RHViewStateKit_Example' do
+  pod 'RHViewStateKit', :path => '../'
+
+  target 'RHViewStateKit_Tests' do
+    inherit! :search_paths
+    
+  end
+end

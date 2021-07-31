@@ -1,0 +1,6 @@
+framework module RHViewStateKit {
+  umbrella header "RHViewStateKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

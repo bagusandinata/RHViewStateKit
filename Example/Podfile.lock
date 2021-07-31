@@ -1,0 +1,23 @@
+PODS:
+  - RHViewStateKit (1.0.0):
+    - SnapKit (= 5.0.1)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - RHViewStateKit (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  RHViewStateKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RHViewStateKit: eed7cf528a3798781d4f08022485071650e9edbc
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 79ccd6c3760d3225684279bbe90e94d07d721d79
+
+COCOAPODS: 1.10.2

@@ -1,0 +1,6 @@
+framework module Pods_RHViewStateKit_Tests {
+  umbrella header "Pods-RHViewStateKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
