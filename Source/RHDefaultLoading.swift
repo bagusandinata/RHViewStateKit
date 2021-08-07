@@ -48,7 +48,7 @@ class RHDefaultLoading: RHLoadingView {
     
     override func updateUI() {
         indicator.snp.remakeConstraints { make in
-            make.width.height.equalTo(20)
+            make.size.equalTo(20)
             make.center.equalTo(self)
         }
     }

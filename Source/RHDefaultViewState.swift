@@ -41,7 +41,7 @@ class RHDefaultViewState: UIView {
         return view
     }()
     
-    private let primaryButton: UIButton = {
+    private lazy var primaryButton: UIButton = {
         let view = UIButton()
         view.addTarget(self, action: #selector(didTapPrimaryButton(_:)), for: .touchUpInside)
         return view
@@ -281,7 +281,7 @@ extension RHDefaultViewState {
         addSubview(loadingView)
         
         loadingView.snp.makeConstraints { make in
-            make.center.equalTo(self)
+            make.center.equalToSuperview()
             make.size.equalTo(loadingConfiguration.size)
         }
         
@@ -330,21 +330,20 @@ extension RHDefaultViewState {
         coverImageView.snp.removeConstraints()
         
         imageView.snp.remakeConstraints { make in
-            make.top.equalTo(messageView)
+            make.top.centerX.equalToSuperview()
             make.size.equalTo(DEFAULT_CONFIGURATION_IMAGE.size)
-            make.centerX.equalTo(messageView)
         }
         
         titleLabel.textAlignment = makeTextAlignment(with: position)
         titleLabel.snp.remakeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(DEFAULT_CONFIGURATION_TITLE.topConstraint)
-            make.trailing.leading.equalTo(messageView)
+            make.trailing.leading.equalToSuperview()
         }
         
         descriptionLabel.textAlignment = makeTextAlignment(with: position)
         descriptionLabel.snp.remakeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(DEFAULT_CONFIGURATION_DESCRIPTION.topConstraint)
-            make.trailing.leading.equalTo(messageView)
+            make.trailing.leading.equalToSuperview()
         }
         
         primaryButton.snp.remakeConstraints { make in
@@ -358,19 +357,19 @@ extension RHDefaultViewState {
         
         titleLabel.textAlignment = makeTextAlignment(with: position)
         titleLabel.snp.remakeConstraints { make in
-            make.top.trailing.leading.equalTo(messageView)
+            make.top.trailing.leading.equalToSuperview()
         }
         
         descriptionLabel.textAlignment = makeTextAlignment(with: position)
         descriptionLabel.snp.remakeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(DEFAULT_CONFIGURATION_DESCRIPTION.topConstraint)
-            make.trailing.leading.equalTo(messageView)
+            make.trailing.leading.equalToSuperview()
         }
         
         imageView.snp.remakeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(DEFAULT_CONFIGURATION_IMAGE.topConstraint)
             make.size.equalTo(DEFAULT_CONFIGURATION_IMAGE.size)
-            make.centerX.equalTo(messageView)
+            make.centerX.equalToSuperview()
         }
         
         primaryButton.snp.remakeConstraints { make in
@@ -383,20 +382,20 @@ extension RHDefaultViewState {
         imageView.snp.removeConstraints()
         
         coverImageView.snp.remakeConstraints { make in
-            make.top.equalTo(self).offset(topConstraint)
-            make.bottom.equalTo(self).offset(-bottomConstraint)
-            make.trailing.leading.equalTo(self)
+            make.top.equalToSuperview().offset(topConstraint)
+            make.bottom.equalToSuperview().offset(-bottomConstraint)
+            make.trailing.leading.equalToSuperview()
         }
         
         titleLabel.textAlignment = makeTextAlignment(with: position)
         titleLabel.snp.remakeConstraints { make in
-            make.top.trailing.leading.equalTo(messageView)
+            make.top.trailing.leading.equalToSuperview()
         }
         
         descriptionLabel.textAlignment = makeTextAlignment(with: position)
         descriptionLabel.snp.remakeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(DEFAULT_CONFIGURATION_DESCRIPTION.topConstraint)
-            make.trailing.leading.equalTo(messageView)
+            make.trailing.leading.equalToSuperview()
         }
         
         primaryButton.snp.remakeConstraints { make in
@@ -413,13 +412,13 @@ extension RHDefaultViewState {
         
         switch position {
         case .center, .justify:
-            make.centerX.equalTo(messageView)
+            make.centerX.equalToSuperview()
         case .left:
-            make.leading.equalTo(messageView)
-            make.trailing.lessThanOrEqualTo(messageView)
+            make.leading.equalToSuperview()
+            make.trailing.lessThanOrEqualToSuperview()
         case .right:
-            make.leading.greaterThanOrEqualTo(messageView)
-            make.trailing.equalTo(messageView)
+            make.leading.greaterThanOrEqualToSuperview()
+            make.trailing.equalToSuperview()
         }
         
         if let width = DEFAULT_CONFIGURATION_BUTTON.width {
